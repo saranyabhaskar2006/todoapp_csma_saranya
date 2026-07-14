@@ -5,10 +5,8 @@ import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
-
-  // Get all tasks
   const getTasks = async () => {
-    const response = await fetch("http://localhost:5000/api/todos");
+    const response = await fetch("https://todoapp-csma-satya-1.onrender.com/api/todos");
     const data = await response.json();
     setTasks(data);
   };
@@ -19,7 +17,7 @@ function App() {
 
 
   const addTask = async (task) => {
-    await fetch("http://localhost:5000/api/todos", {
+    await fetch("https://todoapp-csma-satya-1.onrender.com/api/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +29,7 @@ function App() {
   };
 
   const toggleComplete = async (task) => {
-    await fetch(`http://localhost:5000/api/todos/${task._id}`, {
+    await fetch(`https://todoapp-csma-satya-1.onrender.com/api/todos/${task._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +43,7 @@ function App() {
   };
 
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/api/todos/${id}`, {
+    await fetch(`https://todoapp-csma-satya-1.onrender.com/api/todos/${id}`, {
       method: "DELETE",
     });
 
